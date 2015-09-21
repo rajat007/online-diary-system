@@ -1,0 +1,47 @@
+﻿%@ Page Language="C#" AutoEventWireup="true" CodeFile="friendz.aspx.cs" Inherits="friendz" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+    </div>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="cannot be left empty" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
+        
+         <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="SEARCH" />
+        </p>
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Button" />
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="add_friends" HeaderText="add_friends" SortExpression="add_friends" />
+            </Columns>
+        </asp:GridView>
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+            <Columns>
+                <asp:BoundField DataField="message" HeaderText="message" SortExpression="message" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:diaryConnectionString %>" SelectCommand="SELECT DISTINCT [add friends] AS add_friends FROM [Friends] WHERE ([friend] = @friend)">
+            <SelectParameters>
+                <asp:SessionParameter Name="friend" SessionField="user name" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:diaryConnectionString %>" SelectCommand="SELECT [message] FROM [share] WHERE ([username] = @username)">
+            <SelectParameters>
+                <asp:SessionParameter Name="username" SessionField="username" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+    </form>
+</body>
+</html>

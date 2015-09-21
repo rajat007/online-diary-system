@@ -1,0 +1,18 @@
+﻿body {
+}
+.auto-style1 {
+            width: 60%;
+            border-style: solid;
+            border-width: 1px;
+            margin:auto;
+            text-align:center
+        }
+.table-content{
+    width:60%;
+    position:relative;
+   
+}
+.content{
+    margin-top:60px;
+    
+}

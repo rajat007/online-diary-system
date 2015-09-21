@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link href="diary.css" rel="stylesheet" />
+    <link href="highlightAnchorTag.css" rel="stylesheet" />
+    <!-- Start WOWSlider.com HEAD section -->
+    <!-- add to the <head> of your page -->
+    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
+    <script type="text/javascript" src="engine1/jquery.js"></script>
+    <!-- End WOWSlider.com HEAD section -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <!-- <link href="modalpopup.css" rel="stylesheet" /> -->
+    <!--script for making active -->
+
+
+    <!--jquery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
+
+    <script>
+        $(document).ready(function () {
+            $('li').on('click', function () {
+                $('li').removeClass('Active');
+                $(this).toggleClass('Active');
+            });
+        });
+    </script>
+
+
+
+
+
+</head>
+
+<body>
+
+    <form id="form1" runat="server">
+
+        <div class="sscontainer-fluid">
+            <div class="well">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <a href="home.aspx">
+                                    <img src="images/diary4ulogo.png" alt="Diary4U" width="100px" />
+                                </a>
+                            </div>
+                            <div class="col-lg-10">
+                                <p class="text-info" style="padding-top: 40px;">Leave the future You something to look back on!</p>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-5">
+                        <asp:ContentPlaceHolder ID="headercol2" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+
+
+                </div>
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
+            </div>
+            <div>
+                <asp:ContentPlaceHolder ID="middle" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+
+            <div class="modal-footer" style="position: absolute; bottom: 0; width: 100%; height: 60px;">
+                <p style="text-align: center;">Copyright © 2015 Diary4u</p>
+            </div>
+        </div>
+
+
+    </form>
+</body>
+</html>
